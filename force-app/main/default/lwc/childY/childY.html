@@ -1,0 +1,24 @@
+<template>
+    <lightning-card  variant="Narrow"  title="trackPropertyDemo" icon-name="standard:account">
+        <lightning-button-icon  icon-name="utility:down" variant="border-filled" alternative-text="Show More" slot="actions"></lightning-button-icon>
+        <p class="slds-p-horizontal_small">Hello {trackParam}</p>
+        <p slot="footer">{trackParam}</p>
+    </lightning-card>
+
+    <lightning-card  variant="Narrow"  title="apiPropertyDemo" icon-name="standard:account">
+        <lightning-button-icon  icon-name="utility:down" variant="border-filled" alternative-text="Show More" slot="actions"></lightning-button-icon>
+        <p class="slds-p-horizontal_small">Hello {apiParam}</p>
+        <p slot="footer">{apiParam}</p>
+    </lightning-card>
+
+    <lightning-card  variant="Narrow"  title="nonReactivePropPropertyDemo" icon-name="standard:account">
+        <lightning-button-icon  icon-name="utility:down" variant="border-filled" alternative-text="Show More" slot="actions"></lightning-button-icon>
+        <p class="slds-p-horizontal_small">Hello {nonReactiveProp}</p>
+        <p slot="footer">{nonReactiveProp}</p>
+    </lightning-card>
+
+    <div>
+        <lightning-button label="click ME" onclick = {handleparamValues}></lightning-button>
+    </div>
+
+</template>

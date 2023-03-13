@@ -1,0 +1,13 @@
+<template>
+    <lightning-button variant="brand-outline" label="Get Boat Types" title="Primary action with lighter look" onclick = {getBoatTypesClick} class="slds-m-left_x-small"></lightning-button>
+    <div class="slds-var-m-around_medium">
+        <template lwc:if={boatTypes__c}>
+            <template for:each={boatTypes__c} for:item="boatType__c">
+                <p key={boatType__c.Name}>{boatType__c.Name}</p>
+            </template>
+        </template>
+        <template lwc:elseif={error}>
+            <c-error-panel errors={error}></c-error-panel>
+        </template>
+    </div>
+</template>

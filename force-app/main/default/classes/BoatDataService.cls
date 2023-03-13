@@ -110,4 +110,14 @@ public static String updateBoatList(Object data){
     update boatsForUpdate;
     return 'Success: Boats updated successfully';
 }
+
+@AuraEnabled(cacheable=true)
+public static List<BoatType__c> getBoatTypesList() {
+    return [
+        SELECT
+            Name
+        FROM BoatType__c
+        LIMIT 10
+    ];
+}
 }
