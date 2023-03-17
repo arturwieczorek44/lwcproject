@@ -39,26 +39,15 @@ public with sharing class MaintenanceRequestHelper extends TriggerHandler {
                 c.Contact =   caseff.Contact;
                 casesForCreation.add(c);
 
-                for(Product2 product: equipments){
-                    Product2 productNew = new Product2();
-                    productNew.Name= product.Name;
-                    productNew.ProductCode= product.ProductCode;
-                    productNew.Cost__c= product.Cost__c;
-                    productNew.Current_Inventory__c= product.Current_Inventory__c;
-                    productNew.Lifespan_Months__c= product.Lifespan_Months__c;
-                    productNew.Maintenance_Cycle__c= product.Maintenance_Cycle__c;
-                    productNew.Family= product.Family;  
-                    productNew.Maintenance_Cycle__c=Maintenance_Time;
-                    equipmentForInsert.add(productNew);
+                for(Equipment_Maintenance_Item__c emi: junctions){
+                    if(emi.Maintenance_Request__c==caseff){
+                        newEmi = emi.clone();
+                        newEmi.Maintenance_Request__c=c;
+                        junctionsForInsert.add(newEmi);
 
+                    }
 
-                    
-                    Equipment_Maintenance_Item__c junction = new Equipment_Maintenance_Item__c();
-                    junction.Equipment__c=productNew.id;
-                    junction.Maintenance_Request__c=caseff.id;
-                    junctionsForInsert.add(junction);
-                    System.debug('junction: ' +junction);
-
+                
             }
         }
         
